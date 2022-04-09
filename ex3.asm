@@ -81,10 +81,6 @@ _start:
         
 
 
-.section .data
-array1: .int 6,4,0
-array2: .int 5,3,0
-mergedArray: .zero 20
 
 
 

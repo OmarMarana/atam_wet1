@@ -4,7 +4,8 @@
 _start:
 #your code here
 
-
+        xorq %rbx, %rbx
+        xorq %rax, %rax
         movq (root), %rax
         movq (new_node), %rbx
             
@@ -16,7 +17,7 @@ _start:
         
 
     ASSESS_NEW_NODE_HW1:
-        cmp %rax ,%rbx
+        cmp (%rax) ,%rbx
         je END_HW1
         jl NEW_NODE_LESS_THAN_ROOT_HW1
         jg NEW_NODE_GREATER_THAN_ROOT_HW1
@@ -24,14 +25,16 @@ _start:
     NEW_NODE_LESS_THAN_ROOT_HW1:
         cmp $0, 8(%rax)
         je LOAD_INTO_LEFT_NODE 
-        addq $0x8, %rax
+        # addq $0x8, %rax
+        movq 8(%rax), %rax
         jmp ASSESS_NEW_NODE_HW1
 
 
     NEW_NODE_GREATER_THAN_ROOT_HW1:
         cmp $0, 16(%rax)
         je LOAD_INTO_RIGHT_NODE 
-        addq $0x16, %rax
+        # addq $0x16, %rax
+        movq 16(%rax), %rax
         jmp ASSESS_NEW_NODE_HW1
 
     LOAD_INTO_LEFT_NODE:
