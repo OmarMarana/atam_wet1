@@ -16,14 +16,16 @@ _start:
 	jmp LOOP_HW1
 
 LOOP_HW1:
+    testq %rax, %rax
+	je END_LOOP_HW1
 	cmp (%rax), %rcx
 	je SRC_inc_HW1
 	cmp (%rax), %rdx
 	je DST_inc_HW1
 	movq %rax, %rbx
 	movq 8(%rax), %rax
-	test %rax, %rax
-	je END_LOOP_HW1
+	; test %rax, %rax
+	; je END_LOOP_HW1
 	jmp LOOP_HW1 
 
 SRC_inc_HW1:
