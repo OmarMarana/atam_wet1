@@ -3,7 +3,10 @@
 .section .text
 _start:
 #your code here
+        xor %rbx, %rbx
         movq (num), %rax
+        cmp $0 ,%rax
+        je END_HW1
         movl (CountBits), %ebx
         movq $0x1, %rcx
         movq $64, %rdx
@@ -21,5 +24,5 @@ _start:
         jmp LOOP_HW1
         
     END_HW1:
-        movq %rax, (num)
+        # movq %rax, (num)      # whats this?
         movl %ebx, (CountBits)
