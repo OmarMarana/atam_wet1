@@ -4,11 +4,11 @@
 _start:
 #your code here
 
-        movq $array1 , %rax
-        movq $array2 , %rbx
-        movq $mergedArray , %rcx
-        xor %rdx, %rdx
-        xor %r8, %r8
+    movq $array1 , %rax
+    movq $array2 , %rbx
+    movq $mergedArray , %rcx
+    xor %rdx, %rdx
+    xor %r8, %r8
 
     LOOP_HW1:
         cmp $0 ,(%rax)   

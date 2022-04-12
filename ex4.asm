@@ -24,7 +24,7 @@ _start:
 
     NEW_NODE_LESS_THAN_ROOT_HW1:
         cmp $0, 8(%rax)
-        je LOAD_INTO_LEFT_NODE 
+        je LOAD_INTO_LEFT_NODE_HW1
         # addq $0x8, %rax
         movq 8(%rax), %rax
         jmp ASSESS_NEW_NODE_HW1
@@ -32,16 +32,16 @@ _start:
 
     NEW_NODE_GREATER_THAN_ROOT_HW1:
         cmp $0, 16(%rax)
-        je LOAD_INTO_RIGHT_NODE 
+        je LOAD_INTO_RIGHT_NODE_HW1
         # addq $0x16, %rax
         movq 16(%rax), %rax
         jmp ASSESS_NEW_NODE_HW1
 
-    LOAD_INTO_LEFT_NODE:
+    LOAD_INTO_LEFT_NODE_HW1:
         movq $new_node, 8(%rax)
         jmp END_HW1 
 
-    LOAD_INTO_RIGHT_NODE:
+    LOAD_INTO_RIGHT_NODE_HW1:
         movq $new_node, 16(%rax)
         jmp END_HW1
 
