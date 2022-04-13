@@ -14,7 +14,7 @@ _start:
     LOOP_HW1:
         cmp %rdx, %rcx
         jg END_HW1
-        ROR %rax
+        ROR %rax    
         inc %rcx
         jb INC_HW1
         jmp LOOP_HW1
@@ -24,5 +24,4 @@ _start:
         jmp LOOP_HW1
         
     END_HW1:
-        # movq %rax, (num)      # whats this?
         movl %ebx, (CountBits)
